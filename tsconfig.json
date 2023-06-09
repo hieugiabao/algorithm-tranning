@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "target": "ES2017",
+    "module": "System",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "lib": ["DOM", "ES2017"]
+  }
+}

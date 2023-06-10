@@ -1,0 +1,56 @@
+name: Algorithm Unit Tests CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  check-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Check files changed
+        uses: ./.github/actions/check-source-changed
+        id: check-files-changed
+    outputs:
+      should_build: ${{ steps.check-files-changed.outputs.is_source_changed == 'true' }}
+
+  fail-early:
+    needs: check-files
+    if: ${{ needs.check-files.outputs.should_build == 'false' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail and notice
+        uses: actions/github-script@v5
+        with:
+          script: |
+            core.setFailed('Fail-safe. OK to ignore.');
+
+  lint:
+    needs: check-files
+    if: ${{ needs.check-files.outputs.should_build == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install
+      - name: Lint
+        run: yarn lint
+
+  test:
+    needs: check-files
+    if: ${{ needs.check-files.outputs.should_build == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install
+      - name: Test
+        run: yarn test

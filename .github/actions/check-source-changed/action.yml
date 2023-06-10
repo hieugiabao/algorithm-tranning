@@ -1,0 +1,13 @@
+outputs:
+  is_source_changed:
+    description: Is this an .ts or .js file(s) changed?
+    value: ${{ steps.check-code-source.outputs.any_changed }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Get all changed .js or .ts file(s)
+      id: check-code-source
+      uses: tj-actions/changed-files@v36
+      with:
+        files: /**.{js,ts}

@@ -2,7 +2,7 @@
 
 Self training and practicing everyday.
 
-Enthusiastic about solving problems using technologies. [https://leetcode.com/hieugiabao/][0]
+Enthusiastic about solving problems using technologies. [https://leetcode.com/hieugiabao](https://leetcode.com/hieugiabao)
 
 ## Prerequisites
 
@@ -29,3 +29,14 @@ npm install
 
 ## Run
 
+```bash
+cd src
+tsc <file-name>.ts
+node <file-name>.js
+```
+
+## Test
+
+```bash
+npm test
+```

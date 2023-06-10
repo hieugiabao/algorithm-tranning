@@ -53,3 +53,20 @@ for i = 0 to grid.length
 Time Complexity: `O(m*n)` <br/>
 Space Complexity: `O(1)` <br/>
 
+## Improvement from original solution
+
+Using the fact that the matrix is sorted in **non-increasing order** both row-wise and column-wise, we can start from the bottom left corner of the matrix and move up and right. <br/>
+```
+negatives := 0
+col := 0
+for row = m-1 to 0
+  while col < n and grid[row][col] >= 0
+    col++
+  negatives += n - col
+return negatives
+```
+
+## Complexity of improved solution
+
+Time Complexity: `O(m+n)` <br/>
+Space Complexity: `O(1)` <br/>

@@ -10,4 +10,5 @@ runs:
       id: check-code-source
       uses: tj-actions/changed-files@v36
       with:
-        files: /**.{js,ts}
+        files: |
+          **/*.{js,ts}

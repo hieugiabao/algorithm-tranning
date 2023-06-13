@@ -1,6 +1,6 @@
 outputs:
   is_source_changed:
-    description: Is this an .ts or .js file(s) changed?
+    description: Is this an .ts or .js file(s) or related file(s) changed?
     value: ${{ steps.check-code-source.outputs.any_changed }}
 
 runs:
@@ -13,3 +13,5 @@ runs:
         files: |
           **/*.{js,ts}
           package.json
+          .eslintrc.json
+          tsconfig.json

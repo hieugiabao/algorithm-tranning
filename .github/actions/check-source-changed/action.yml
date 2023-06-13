@@ -12,3 +12,4 @@ runs:
       with:
         files: |
           **/*.{js,ts}
+          package.json

@@ -70,14 +70,17 @@ We can also traverse the tree level by level using Depth First Search (DFS). To 
 
 **Algorithm**
 
-1. Initialize `max_sum` with a value of `-inf` and `max_level` with a value of `0`.
-2. Define a recursive function, `dfs(node, level)`, that takes a node and its level as arguments:
+1. Initialize a list called `level_sums` to store the sum of each level. The index of the list will correspond to the level of the tree.
+2. Define a recursive function called `dfs(node, level)`:
     1. If `node` is `null`, return.
-    2. If `level` is greater than `max_level`:
-        1. Update `max_level` with the value of `level`.
-        2. Update `max_sum` with the value of `node.val`.
-    3. Otherwise, add `node.val` to `max_sum`.
+    2. If `level` is greater than or equal to the length of `level_sums`, append `node.val` to `level_sums`.
+    3. Otherwise, add `node.val` to `level_sums[level - 1]`.
     4. Recursively call `dfs(node.left, level + 1)`.
     5. Recursively call `dfs(node.right, level + 1)`.
 3. Call `dfs(root, 1)`.
-4. Return `max_level`.
+4. Return the index of the maximum value in `level_sums` plus `1`.
+
+**Complexity Analysis**
+
+* Time complexity : $O(n)$, where $n$ is the number of nodes in the tree. We visit each node once.
+* Space complexity : $O(h)$, where $h$ is the height of the tree. In the worst case, the tree is completely unbalanced, e.g. each node has only one child node, and the call stack will contain all nodes in one branch of the tree. For a full binary tree, the height is $h = \log n$, where $n$ is the number of nodes in the tree. Since $h \in O(n)$, we can say that the space complexity is $O(n)$.

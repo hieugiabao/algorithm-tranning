@@ -62,8 +62,8 @@ class Solution {
 
 ### Complexity Analysis
 
-- Time Complexity: $O(1)$.
-  Let $\epsilon$ be the error tolerance, and $m_0$ be the first value such that $dp[m_0][m_0]>1−ϵ.$
-  We calculate $O(min(m,m_0)^2)=O(m_0^2)$ state of DP in $O(1)$ each, meaning the total time complexity is $O(m_0^2)$.
-  We assume that $\epsilon$ to be constant. It implies that $m_0$ is constant, and the time complexity is $O(1)$. In our case, $\epsilon=10^{-5}$, and $m_0\approx200.$.
+- Time Complexity: $O(1)$. <br/>
+  Let $\epsilon$ be the error tolerance, and $m_0$ be the first value such that $dp[m_0][m_0]>1−ϵ.$ <br/>
+  We calculate $O(min(m,m_0)^2)=O(m_0^2)$ state of DP in $O(1)$ each, meaning the total time complexity is $O(m_0^2)$. <br/>
+  We assume that $\epsilon$ to be constant. It implies that $m_0$ is constant, and the time complexity is $O(1)$. In our case, $\epsilon=10^{-5}$, and $m_0 \approx 200.$.
 - Space Complexity: $O(1)$.

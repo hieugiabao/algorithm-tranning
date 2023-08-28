@@ -1,5 +1,7 @@
 # algorithm-training
 
+[![CI](https://github.com/hieugiabao/algorithm-training/workflows/Algorithm%20Unit%20Tests%20CI/badge.svg)](https://github.com/hieugiabao/algorithm-training/actions?query=workflow%3A%22Algorithm+Unit+Tests+CI%22)
+
 Self training and practicing everyday.
 
 Enthusiastic about solving problems using technologies. [https://leetcode.com/hieugiabao](https://leetcode.com/hieugiabao)

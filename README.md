@@ -1,6 +1,7 @@
 # algorithm-training
 
 [![CI](https://github.com/hieugiabao/algorithm-training/workflows/Algorithm%20Unit%20Tests%20CI/badge.svg)](https://github.com/hieugiabao/algorithm-training/actions?query=workflow%3A%22Algorithm+Unit+Tests+CI%22)
+[![Circle-CI](https://circleci.com/gh/hieugiabao/algorithm-training.svg?style=shield)](https://app.circleci.com/pipelines/github/hieugiabao/algorithm-training)
 
 Self training and practicing everyday.
 

@@ -69,7 +69,8 @@ jobs:
           result="skip. :x:"
           if [ "${STATUS_APPROVE}" == "true" ]; then
               result=" auto-approve! :white_check_mark:"
-          else if [ "${STATUS_MERGE}" == "true" ]; then
+          fi
+          if [ "${STATUS_MERGE}" == "true" ]; then
               result=" auto-merge! :white_check_mark:"
           fi
           echo "### Done with ${result}" >> $GITHUB_STEP_SUMMARY

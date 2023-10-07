@@ -1,0 +1,50 @@
+name: Dependabot Auto Approve
+
+on:
+  pull_request_target:
+    types: [review_requested]
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: read
+
+jobs:
+  dependabot:
+    name: Auto approve
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1.6.0
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Approve a PR if not already approved
+        id: auto-approve
+        run: |
+          gh pr checkout "$PR_URL"
+          if [ "$(gh pr status --json reviewDecision -q .currentBranch.reviewDecision)" != "APPROVED" ];
+          then
+            gh pr edit "$PR_URL" --add-label "auto-approved"
+            gh pr review --approve "$PR_URL"
+            echo "STATUS=true" >> $GITHUB_OUTPUT
+          else
+            echo "PR already approved."
+            echo "STATUS=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Write summary
+        run: |
+          result="skip. :x:"
+          if [ "${STATUS}" == "true" ]; then
+              result=" auto-approve! :white_check_mark:"
+          fi
+          echo "### Done with ${result}" >> $GITHUB_STEP_SUMMARY
+        env:
+          STATUS: ${{ steps.auto-approve.outputs.STATUS }}

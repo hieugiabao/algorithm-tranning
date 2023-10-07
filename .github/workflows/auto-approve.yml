@@ -2,7 +2,9 @@ name: Dependabot Auto Approve
 
 on:
   pull_request_target:
-    types: [review_requested]
+    types: [opened, synchronize, reopened, ready_for_review, review_requested]
+    branches:
+      - dependabot/* # Dependabot PRs
 
 permissions:
   contents: write

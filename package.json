@@ -7,7 +7,10 @@
   "scripts": {
     "lint": "eslint --ext .ts,.js .",
     "lint:fix": "eslint --fix --ext .ts,.js .",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "test:coverage": "jest --coverage",
+    "deploy": "gh-pages -d coverage/lcov-report",
+    "predeploy": "yarn test:coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",
@@ -33,5 +36,8 @@
     "*.{js,ts}": [
       "eslint --fix --cache"
     ]
+  },
+  "dependencies": {
+    "gh-pages": "^6.0.0"
   }
 }

@@ -12,11 +12,11 @@ Return _the minimum cost to reach the top of the floor._
 
 ### Example 1:
 
-> **Input**: <code>cost = [10,<u>15</u>,20]</code> <br /> **Output**: `15` <br /> **Explanation**: You will start at index 1. <br/> - Pay 15 and climb two steps to reach the top. <br/> The total cost is 15.
+> **Input**: <code>cost = [10,<ins>15</ins>,20]</code> <br /> **Output**: `15` <br /> **Explanation**: You will start at index 1. <br/> - Pay 15 and climb two steps to reach the top. <br/> The total cost is 15.
 
 ### Example 2:
 
-> **Input**: <code>cost = [<u>1</u>,100,<u>1</u>,1,<u>1</u>,100,<u>1</u>,<u>1</u>,100,<u>1</u>]</code> <br /> **Output**: `6` <br /> **Explanation**: You will start at index 0. <br/> - Pay 1 and climb two steps to reach index 2. <br/> - Pay 1 and climb two steps to reach index 4. <br/> - Pay 1 and climb two steps to reach index 6. <br/> - Pay 1 and climb one step to reach index 7. <br/> - Pay 1 and climb two steps to reach index 9. <br/> - Pay 1 and climb two steps to reach the top. <br/> The total cost is 6.
+> **Input**: <code>cost = [<ins>1</ins>,100,<ins>1</ins>,1,<ins>1</ins>,100,<ins>1</ins>,<ins>1</ins>,100,<ins>1</ins>]</code> <br /> **Output**: `6` <br /> **Explanation**: You will start at index 0. <br/> - Pay 1 and climb two steps to reach index 2. <br/> - Pay 1 and climb two steps to reach index 4. <br/> - Pay 1 and climb two steps to reach index 6. <br/> - Pay 1 and climb one step to reach index 7. <br/> - Pay 1 and climb two steps to reach index 9. <br/> - Pay 1 and climb two steps to reach the top. <br/> The total cost is 6.
 
 ### Constraints:
 

@@ -57,7 +57,7 @@ jobs:
         if: ${{ fromJson(steps.merge-types.outputs.count) > 0 && contains(steps.merge-types.outputs.types, steps.metadata.outputs.update-type) }}
         run: |
           gh pr edit "$PR_URL" --add-label "auto-merged" || true
-          gh pr merge --auto --delete-branch -m "Auto-merged by GitHub Actions" "$PR_URL"
+          gh pr merge  "$PR_URL" --auto --delete-branch -m "Auto-merged by GitHub Actions"
           echo "STATUS=true" >> $GITHUB_OUTPUT
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}

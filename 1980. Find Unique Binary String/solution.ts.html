@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for 2352. Equal Row and Column Pairs/solution.ts</title>
+    <title>Code coverage report for 1980. Find Unique Binary String/solution.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">2352. Equal Row and Column Pairs</a> solution.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">1980. Find Unique Binary String</a> solution.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">92.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/16</span>
+                <span class='fraction'>13/14</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">91.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>11/12</span>
             </div>
         
             
@@ -94,68 +94,71 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * The function counts the number of pairs of rows and columns in a grid that have the same values.
- * @param {number[][]} grid - a 2D array of numbers representing a square grid. Each element in the grid is a number
- * between 1 and n, where n is the size of the grid. The function returns the number of pairs of rows and columns that have
- * the same elements in the same order.
- * @returns a number, which represents the count of pairs of rows and columns in the input grid that have the same values.
- */
-function equalPairs(grid: number[][]): number {
-  let count = 0
-  const n = grid.length
-  const rowCounter = new Map&lt;string, number&gt;()
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">function findDifferentBinaryString(nums: string[]): string {
+  const n = nums.length
+  // mask is a bit mask that records the number of 1s in each binary string
+  let mask = 0
 &nbsp;
-  for (let i = 0; i &lt; n; i++) {
-    const rowKey = grid[i].join(',')
-    // The row may be counted multiple times, so we need to keep track of the count
-    rowCounter.set(rowKey, (rowCounter.get(rowKey) ?? 0) + 1)
-  }
-&nbsp;
-  for (let i = 0; i &lt; n; i++) {
-    const col = []
-    for (let j = 0; j &lt; n; j++) {
-      col.push(grid[j][i])
+  /*
+    For each binary string, we use a bit mask to record the number of 1s in it.
+    For example, if the i-th bit of mask is 1, then there are i 1s in the binary string.
+    We use this bit mask to check if we can construct the answer with the i-th bit.
+  */
+  for (const num of nums) {
+    let countOne = 0
+    for (let i = 0; i &lt; n; i++) {
+      if (num[i] === '1') {
+        countOne++
+      }
     }
-    const colKey = col.join(',')
-    count += rowCounter.get(colKey) ?? 0
+&nbsp;
+    mask |= 1 &lt;&lt; countOne
   }
 &nbsp;
-  return count
+  for (let i = 0; i &lt;= n; ++i) {
+    // if the i-th bit is 0, then we can use it to construct the answer
+    if (((mask &gt;&gt; i) &amp; 1) === 0) {
+      return '1'.repeat(i) + '0'.repeat(n - i)
+    }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return ''</span>
 }
 &nbsp;
-export { equalPairs }
+export { findDifferentBinaryString }
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

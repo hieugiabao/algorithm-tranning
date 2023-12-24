@@ -2,6 +2,9 @@
 
 [![Algorithm Unit Tests CI](https://github.com/hieugiabao/algorithm-training/actions/workflows/ci.yml/badge.svg)](https://github.com/hieugiabao/algorithm-training/actions/workflows/ci.yml)
 [![Circle-CI](https://circleci.com/gh/hieugiabao/algorithm-training.svg?style=shield)](https://app.circleci.com/pipelines/github/hieugiabao/algorithm-training)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hieugiabao_algorithm-training&metric=coverage)](https://sonarcloud.io/summary/new_code?id=hieugiabao_algorithm-training)
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=hieugiabao_algorithm-training)](https://sonarcloud.io/summary/new_code?id=hieugiabao_algorithm-training)
 
 Self training and practicing everyday.
 

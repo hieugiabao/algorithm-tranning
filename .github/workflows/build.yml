@@ -21,10 +21,8 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         with:
           args: >
-            -Dsonar.projectKey=$SONARCLOUD_PROJECT_KEY
-            -Dsonar.organization=$SONARCLOUD_ORGANIZATION
+            -Dsonar.projectKey=${{ secrets.SONARCLOUD_PROJECT_KEY }}
+            -Dsonar.organization=${{ secrets.SONARCLOUD_ORGANIZATION }}
             -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
         env:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
-          PROJECT_KEY: ${{ secrets.SONARCLOUD_PROJECT_KEY }}
-          ORGANIZATION: ${{ secrets.SONARCLOUD_ORGANIZATION }}

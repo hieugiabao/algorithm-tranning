@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for 1980. Find Unique Binary String/solution.ts</title>
+    <title>Code coverage report for 1758. Minimum Changes To Make Alternating Binary String/solution.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">1980. Find Unique Binary String</a> solution.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">1758. Minimum Changes To Make Alternating Binary String</a> solution.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.85% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/14</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/12</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -92,73 +92,64 @@
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">function findDifferentBinaryString(nums: string[]): string {
-  const n = nums.length
-  // mask is a bit mask that records the number of 1s in each binary string
-  let mask = 0
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">function minOperations(s: string): number {
+  let start0 = 0 // number of operations to make s start with 0
+  let start1 = 0 // number of operations to make s start with 1
 &nbsp;
-  /*
-    For each binary string, we use a bit mask to record the number of 1s in it.
-    For example, if the i-th bit of mask is 1, then there are i 1s in the binary string.
-    We use this bit mask to check if we can construct the answer with the i-th bit.
-  */
-  for (const num of nums) {
-    let countOne = 0
-    for (let i = 0; i &lt; n; i++) {
-      if (num[i] === '1') {
-        countOne++
+  for (let i = 0; i &lt; s.length; i++) {
+    if (i % 2 === 0) {
+      // i is even -&gt; s[i] should be 0 if s starts with 0 and 1 otherwise
+      if (s[i] === '1') {
+        // s starts with 0 must be changed to 1
+        start0++
+      } else {
+        // s starts with 1 must be changed to 0
+        start1++
+      }
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (i % 2 === 1) {
+      // i is odd -&gt; s[i] should be 1 if s starts with 0 and 0 otherwise
+      if (s[i] === '1') {
+        start1++
+      } else {
+        start0++
       }
     }
-&nbsp;
-    mask |= 1 &lt;&lt; countOne
   }
 &nbsp;
-  for (let i = 0; i &lt;= n; ++i) {
-    // if the i-th bit is 0, then we can use it to construct the answer
-    if (((mask &gt;&gt; i) &amp; 1) === 0) {
-      return '1'.repeat(i) + '0'.repeat(n - i)
-    }
-  }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  return ''</span>
+  // return the minimum number of operations
+  return Math.min(start0, start1)
 }
 &nbsp;
-export { findDifferentBinaryString }
+export { minOperations }
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
